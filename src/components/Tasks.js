@@ -2,11 +2,14 @@ import React from 'react'
 import Task from './Task'
 
 
-const Tasks = ({tasks}) => {
+const Tasks = ({tasks, onDelete, onToggle}) => {
   return (
     <>
       {tasks.map((pp) => (
-      <Task key={pp.id} task={pp.text} day={pp.day}/>
+      <Task key={pp.id} task={pp} 
+      onDelete={onDelete}
+      onToggle={onToggle}   
+      />
       ))}
     </>
 
