@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{Fragment, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { func } from 'prop-types';
@@ -33,8 +33,23 @@ function App() {
         <p>FEB 13</p>
         <hr/>
       </div>
+    <Modal/>
+
     </div>
   );
+}
+// component must be capital
+function Modal(){
+  return(
+    // Fragment
+  <>
+    <div className="modal">
+    <h2>TITLE</h2>
+    <p>DAY</p>
+    <p>DETAIL</p>
+  </div>
+  </>
+  )
 }
 
 export default App;
