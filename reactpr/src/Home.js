@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import BlogList from './BlogList';
 
 const Home = () => {
@@ -9,16 +9,25 @@ const Home = () => {
     {title:'MY LEE WEB3', body:'LPOA PLPOLQOOP', author:'LEE3', id:3}
   ])
 
+  const [name,setName] = useState('LEE')
+
   const handleDelete = (id) =>{
     const newBLogs = blogs.filter(blog => blog.id !== id)
     setBlogs(newBLogs)
   }
 
+  useEffect(() => {
+    console.log('use Effecr');
+  }, [name])
+
   return ( 
     <div className="home">
       <BlogList blogs={blogs} title='All Blogs' handleDelete={handleDelete}/>
+      <button onClick={()=>setName('KIM')}>BUTTON</button>
     </div>
   );
 }
 
 export default Home;
+
+//Anonymous function 
