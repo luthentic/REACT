@@ -17,13 +17,18 @@ const Home = () => {
   }
 
   useEffect(() => {
-    console.log('use Effecr');
-  }, [name])
+    fetch('http://localhost:8000/blogs')
+      .then(res =>{
+        return res.json()
+      })
+      .then(data =>{
+        setBlogs(data)
+      })
+  }, [])
 
   return ( 
     <div className="home">
-      <BlogList blogs={blogs} title='All Blogs' handleDelete={handleDelete}/>
-      <button onClick={()=>setName('KIM')}>BUTTON</button>
+      {blogs && <BlogList blogs={blogs} title='All Blogs' handleDelete={handleDelete}/>}
     </div>
   );
 }
